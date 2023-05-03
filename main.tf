@@ -22,7 +22,7 @@ resource "azurerm_resource_group" "main" {
 }
 
 module "network" {
-  source              = "./modules/network"
+  source              = "./network.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   virtual_network_name  = local.virtual_network_name
