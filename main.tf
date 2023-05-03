@@ -30,7 +30,7 @@ module "network" {
 }
 
 module "loadbalancer" {
-  source              = "./modules/loadbalancer"
+  source              = "./loadbalancer.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   lb_name             = local.lb_name
@@ -38,7 +38,7 @@ module "loadbalancer" {
 }
 
 module "vmss" {
-  source              = "./modules/vmss"
+  source              = "./vmss.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   vmss_name           = local.vmss_name
@@ -47,7 +47,7 @@ module "vmss" {
 }
 
 module "app_gateway" {
-  source              = "./modules/app_gateway"
+  source              = "./app_gateway.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   app_gateway_name    = local.app_gateway_name
@@ -55,21 +55,21 @@ module "app_gateway" {
 }
 
 module "mysql_server" {
-  source              = "./modules/mysql_server"
+  source              = "./mysql_server.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   mysql_server_name   = local.mysql_server_name
 }
 
 module "key_vault" {
-  source              = "./modules/key_vault"
+  source              = "./key_vault.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   key_vault_name      = local.key_vault_name
 }
 
 module "log_analytics" {
-  source              = "./modules/log_analytics"
+  source              = "./log_analytics.tf"
   resource_group_name = azurerm_resource_group.main.name
   location            = local.location
   log_analytics_name  = local.log_analytics_name
